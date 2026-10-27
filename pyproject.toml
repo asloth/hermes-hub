@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hermes-hub"
+version = "0.1.0"
+description = "One terminal front-end for all your Hermes profiles and peers, with a Claude Code bridge."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+mcp = ["mcp"]
+test = ["pytest"]
+
+[project.scripts]
+hh = "hermes_hub.cli:main"
+
+[tool.setuptools]
+packages = ["hermes_hub"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# Keep temp files inside the repo (TMPDIR may point somewhere shared).
+addopts = "--basetemp=.pytest_tmp"
